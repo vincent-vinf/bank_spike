@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spike-config
+data:
+  config.yaml: |
+    mysql:
+      host: 192.168.2.2
+      port: 3306
+      user: root
+      passwd: <passwd>
+      database: bank_spike
+
+    jwt:
+      secret: 123
+      timeout: 24h
+      maxRefresh: 48h
+
+    admin_jwt:
+      secret: <passwd>
+      timeout: 24h
+      maxRefresh: 48h
+
+    redis:
+      db: 2
+      endpoint: 192.168.2.2:6379
+      passwd: <passwd>
+
+    spike:
+      rand_url_key: <passwd>
+
+    rabbitmq:
+      host: 192.168.2.2
+      port: 5672
+      user: vincent
+      passwd: <passwd>
+

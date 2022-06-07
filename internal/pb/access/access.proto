@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "./internal/pb/access";
+package access;
+
+// protoc --go_out=plugins=grpc:. .\internal\pb\access\access.proto
+service Access{
+  rpc IsAccessible(AccessReq) returns (AccessRes) {}
+}
+
+message AccessReq {
+  string UserId = 1;
+  string SpikeId = 2;
+}
+
+message AccessRes {
+  bool result = 1;
+  string reason = 2;
+}
